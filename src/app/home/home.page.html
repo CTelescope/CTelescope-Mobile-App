@@ -1,0 +1,74 @@
+<style>
+
+.imgSize { 
+  max-width: 100%; 
+  height: auto; 
+}
+</style>
+
+<ion-content [fullscreen]="true" style="--background: #000" class="no-scroll">
+  
+
+  <ion-header collapse="condense">
+    
+  </ion-header>
+  
+<div id="container" style="flex: vertical;">
+    <img style="width:100%;" src="http://192.168.1.30:8080/?action=stream" />
+</div>
+
+
+<!--Bouton Capture-->
+<div class="rightButton">
+  <div>
+    <ion-button color="danger" (click)="callGotoFunction()"><ion-icon name="camera"></ion-icon>Test GOTO</ion-button>
+  </div>
+  <div>
+    <ion-button color="danger" (click)="callGetPosFunction()"><ion-icon name="move"></ion-icon>Test getPosition</ion-button>
+  </div>
+  <div>
+    <ion-button color="danger" (click)="callRafalesFunction()"><ion-icon name="albums-outline"></ion-icon>Test Rafales</ion-button>
+  </div>
+  <div>
+    <ion-button color="danger" (click)="callRecordFunction()"><ion-icon name="videocam-outline"></ion-icon>Test Enregistrements</ion-button>
+  </div>
+  <div>
+    <ion-button color="danger" (click)="callRafalesFunction()"><ion-icon name="image-outline"></ion-icon>Test Captures</ion-button>
+  </div>
+</div>
+
+
+
+<!--Menu pour ouvrir le drawer du bas-->
+<ion-button id="openModal" color="danger">
+  <ion-icon size name="menu"></ion-icon>
+</ion-button>
+
+<ion-modal class="no-scroll" trigger="openModal" [initialBreakpoint]="0.5">
+  <ng-template>
+    <ion-content style="--background: #140003;">
+<div>
+  <div class="divCustom">
+    <ion-button class="buttonPlacement" color="danger" (click)="GuiObjManager()"><ion-icon name="planet-outline"></ion-icon></ion-button>
+    <ion-button class="buttonPlacement" color="danger" (click)="CallExternalJSFileFunction()"><ion-icon name="camera"></ion-icon></ion-button>
+  </div>
+  <div class="divCustom">
+    <ion-button class="buttonPlacement" color="danger" (click)="CallExternalJSFileFunction()"><ion-icon name="camera"></ion-icon></ion-button>
+    <ion-button class="buttonPlacement" color="danger" (click)="CallExternalJSFileFunction()"><ion-icon name="camera"></ion-icon></ion-button>
+  </div>
+  <!--Slider-->
+  <div>
+    <ion-item style="position: relative;">
+      <p>Vitesse de déplacements : </p>
+      <ion-range min="1" max="6" step="1" value="1" snaps color="danger">
+        <ion-label slot="start">1</ion-label>
+        <ion-label slot="end">6</ion-label>
+      </ion-range>
+    </ion-item>
+  </div>
+</div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+</ion-content>

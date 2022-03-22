@@ -1,0 +1,8 @@
+{
+  "name": "TestUnitaireUn",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}
