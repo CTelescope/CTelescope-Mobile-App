@@ -1,0 +1,78 @@
+#container {
+    text-align: center;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  ion-col{
+    align-items: center;
+    text-align: center;
+    
+  
+    grid-auto-columns: min-content;
+  }
+  
+  
+  ion-row{
+   align-content: center;
+   box-sizing:content-box;
+   text-align: center;
+  
+   align-items: center;
+   width: 1000px;
+  }
+  
+  
+  ion-grid{
+    --ion-grid-width-xs: 100%;
+    --ion-grid-width-sm: 540px;
+    --ion-grid-width-md: 720px;
+    --ion-grid-width-lg: 960px;
+    --ion-grid-width-xl: 1140px;
+    
+    
+    --ion-grid-column-padding: 20px;
+    --ion-grid-column-padding-xs: 5px;
+    --ion-grid-column-padding-sm: 5px;
+    --ion-grid-column-padding-md: 5px;
+    --ion-grid-column-padding-lg: 5px;
+    --ion-grid-column-padding-xl: 5px;
+  }
+  
+  div{
+    color: #5c000c;
+  }
+  
+  ion-title{
+    color:   #5c000c;
+    ;
+  
+  }
+  .homeButton {
+    position:absolute;
+    top:0;right:0;
+    padding-top: 7px;
+    padding-right: 7px;
+  }

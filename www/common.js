@@ -1056,7 +1056,7 @@ const openURL = /*#__PURE__*/function () {
   \****************************************************************/
 /***/ ((module) => {
 
-module.exports = ".custom-modal {\n  --backdrop-opacity: 1;\n  -webkit-backdrop-filter: blur(3px);\n          backdrop-filter: blur(3px);\n}\n.custom-modal::part(backdrop) {\n  background: lime;\n}\n.custom-modal::part(handle) {\n  background: var(--ion-color-primary);\n  width: 150px;\n  height: 6px;\n}\n.custom-modal::part(content) {\n  border-radius: 0px;\n  box-shadow: 0px 0px 20px 5px rgba(253, 0, 0, 0.32);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpbXBsZS1tb2RhbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxxQkFBQTtFQUNBLGtDQUFBO1VBQUEsMEJBQUE7QUFDSjtBQUNJO0VBQ0ksZ0JBQUE7QUFDUjtBQUVJO0VBQ0ksb0NBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtBQUFSO0FBR0k7RUFDSSxrQkFBQTtFQUNBLGtEQUFBO0FBRFIiLCJmaWxlIjoic2ltcGxlLW1vZGFsLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jdXN0b20tbW9kYWwge1xyXG4gICAgLS1iYWNrZHJvcC1vcGFjaXR5OiAxO1xyXG4gICAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDNweCk7XHJcblxyXG4gICAgJjo6cGFydChiYWNrZHJvcCkge1xyXG4gICAgICAgIGJhY2tncm91bmQ6IHJnYigwLCAyNTUsIDApO1xyXG4gICAgfVxyXG5cclxuICAgICY6OnBhcnQoaGFuZGxlKSB7XHJcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0taW9uLWNvbG9yLXByaW1hcnkpO1xyXG4gICAgICAgIHdpZHRoOiAxNTBweDtcclxuICAgICAgICBoZWlnaHQ6IDZweDtcclxuICAgIH1cclxuXHJcbiAgICAmOjpwYXJ0KGNvbnRlbnQpIHtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiAwcHg7XHJcbiAgICAgICAgYm94LXNoYWRvdzogMHB4IDBweCAyMHB4IDVweCByZ2JhKDI1MywgMCwgMCwgMC4zMik7XHJcbiAgICB9XHJcbn0iXX0= */";
+module.exports = "ion-modal {\n  --background: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpbXBsZS1tb2RhbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxpQkFBQTtBQUNKIiwiZmlsZSI6InNpbXBsZS1tb2RhbC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tbW9kYWwge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiByZWQ7XHJcbn0iXX0= */";
 
 /***/ }),
 
@@ -1066,7 +1066,7 @@ module.exports = ".custom-modal {\n  --backdrop-opacity: 1;\n  -webkit-backdrop-
   \****************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Modal Content</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n\n</ion-accordion-group>\n\n</ion-content>";
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Modal Content</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n</ion-accordion-group>\n\n</ion-content>";
 
 /***/ })
 

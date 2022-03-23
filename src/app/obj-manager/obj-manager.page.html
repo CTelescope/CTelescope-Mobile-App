@@ -1,19 +1,36 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>objManager</ion-title>
+    <ion-title>
+      Liste des objets
+    </ion-title>
+    <div class="homeButton">
+      <ion-button size="small"  class="buttonPlacement" color="danger" (click)="homePageButton()"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content class="test">
-
-  <div id="container" style="flex: vertical;">
-    <div>
-      <ion-button class="buttonPlacement" color="danger" (click)="homePageButton()"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
-    </div>
-    <div>
-      <img src="https://c.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif">
-    </div>
-  </div>
-
+<ion-content>
+  <ion-grid>
+    <ion-item>
+      <ion-row >
+        <ion-col><div>Nom</div></ion-col>
+        <ion-col><div>Asension droite</div></ion-col>
+        <ion-col><div>Declinaison</div></ion-col>
+        <ion-col><div>Magnitude</div></ion-col>
+        <ion-col><div>Type</div></ion-col>
+        <ion-col><div>Constellation</div></ion-col>
+      </ion-row>
+    </ion-item>
+      <ion-item *ngFor="let objects of objects" button>
+        <ion-row>
+        <ion-col ><div>{{objects.object_nom}}</div></ion-col>
+        <ion-col><div>{{objects.object_AD}}</div></ion-col>
+        <ion-col><div>{{objects.object_Decl}}</div></ion-col>
+        <ion-col><div>{{objects.object_Mag}}</div></ion-col>
+        <ion-col><div>{{objects.object_type}}</div></ion-col>
+        <ion-col><div>{{objects.object_const}}</div></ion-col>
+      </ion-row>
+      </ion-item>
+  </ion-grid>
+  
 </ion-content>

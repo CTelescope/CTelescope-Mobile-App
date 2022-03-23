@@ -57,3 +57,19 @@ function rafalesFunction(){
       }
     });
     }
+
+    function CapturesFunction(){
+      addEventListener('click', async _ => {
+        try {     
+          const response = await fetch('http://192.168.1.30:5000/api/captures', {
+            method: 'post',
+            
+            headers:  {"Content-Type":"application/json"},
+            body: JSON.stringify({})
+          });
+          console.log('Completed!', response);
+        } catch(err) {
+          console.error(`Error: ${err}`);
+        }
+      });
+      }

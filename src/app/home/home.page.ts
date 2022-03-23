@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 declare var GotoFunction;
 declare var getPosFunction;
 declare var rafalesFunction;
-declare var recordFunction
+declare var recordFunction;
+declare var CapturesFunction;
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,10 @@ export class HomePage {
   }
   callRecordFunction(){
     recordFunction();
+  }
+
+  callCapturesFunction(){
+    CapturesFunction();
   }
   
   GuiObjManager(){

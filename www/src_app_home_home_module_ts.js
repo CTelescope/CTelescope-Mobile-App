@@ -96,7 +96,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 3184);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 3819);
 /* harmony import */ var _simple_modal_simple_modal_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../simple-modal/simple-modal.page */ 3576);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 318);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 2816);
 
 
 
@@ -106,13 +106,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HomePage = class HomePage {
-    constructor(menu, modalCtrl, sanitizer) {
+    constructor(menu, modalCtrl, route) {
         this.menu = menu;
         this.modalCtrl = modalCtrl;
-        this.sanitizer = sanitizer;
+        this.route = route;
     }
-    CallExternalJSFileFunction() {
-        ExternalJSFileFunction();
+    callGetPosFunction() {
+        getPosFunction();
+    }
+    callRafalesFunction() {
+        rafalesFunction();
+    }
+    callRecordFunction() {
+        recordFunction();
+    }
+    GuiObjManager() {
+        this.route.navigate(['/obj-manager']);
     }
     presentModal() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, function* () {
@@ -124,15 +133,11 @@ let HomePage = class HomePage {
             yield modal.present();
         });
     }
-    ngOnInit() {
-        // It could be bypassTrustResourceUrl (you would need to test)
-        this.safeUrl = this.sanitizer.bypassSecurityTrustUrl('http://192.168.1.30:8080/?action=stream');
-    }
 };
 HomePage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.MenuController },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.ModalController },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.DomSanitizer }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.Router }
 ];
 HomePage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
@@ -162,7 +167,7 @@ module.exports = "#container {\n  text-align: center;\n  position: absolute;\n  
   \************************************************/
 /***/ ((module) => {
 
-module.exports = "<style>\n\n.imgSize { \n  max-width: 100%; \n  height: auto; \n}\n</style>\n\n<ion-content [fullscreen]=\"true\" style=\"--background: #000\" class=\"no-scroll\">\n  \n\n  <ion-header collapse=\"condense\">\n    \n  </ion-header>\n  \n<div id=\"container\" style=\"flex: vertical;\">\n\n    <!--<img style=\"width:100%;\" *ngIf=\"safeUrl\" src=\"http://192.168.1.30/?action=stream\" />-->\n    <img [src]=\"safeUrl\" />\n</div>\n\n\n<!--Bouton Capture-->\n<div class=\"rightButton\">\n  <div>\n    <ion-button color=\"danger\" (click)=\"CallExternalJSFileFunction()\"><ion-icon name=\"camera\"></ion-icon></ion-button>\n  </div>\n  <div>\n    <ion-button color=\"danger\" (click)=\"CallExternalJSFileFunction()\"><ion-icon name=\"move\"></ion-icon></ion-button>\n  </div>\n</div>\n\n\n<!--Menu pour ouvrir le drawer du bas-->\n<ion-button id=\"openModal\" color=\"danger\">\n  <ion-icon size name=\"menu\"></ion-icon>\n</ion-button>\n\n<ion-modal class=\"no-scroll\" trigger=\"openModal\" [initialBreakpoint]=\"0.5\">\n  <ng-template >\n    <ion-content>\n\n<div>\n  <div class=\"divCustom\">\n    <ion-button class=\"buttonPlacement\" color=\"danger\" (click)=\"CallExternalJSFileFunction()\"><ion-icon name=\"camera\"></ion-icon></ion-button>\n    <ion-button class=\"buttonPlacement\" color=\"danger\" (click)=\"CallExternalJSFileFunction()\"><ion-icon name=\"camera\"></ion-icon></ion-button>\n  </div>\n  <div class=\"divCustom\">\n    <ion-button class=\"buttonPlacement\" color=\"danger\" (click)=\"CallExternalJSFileFunction()\"><ion-icon name=\"camera\"></ion-icon></ion-button>\n    <ion-button class=\"buttonPlacement\" color=\"danger\" (click)=\"CallExternalJSFileFunction()\"><ion-icon name=\"camera\"></ion-icon></ion-button>\n  </div>\n  <!--Slider-->\n  <div>\n    <ion-item style=\"position: relative;\">\n      <p>Vitesse de déplacements : </p>\n      <ion-range min=\"1\" max=\"6\" step=\"1\" value=\"1\" snaps color=\"danger\">\n        <ion-label slot=\"start\">1</ion-label>\n        <ion-label slot=\"end\">6</ion-label>\n      </ion-range>\n    </ion-item>\n  </div>\n</div>\n\n\n    </ion-content>\n  </ng-template>\n</ion-modal>\n\n</ion-content>\n";
+module.exports = "<style>\n\n.imgSize { \n  max-width: 100%; \n  height: auto; \n}\n</style>\n\n<ion-content [fullscreen]=\"true\" style=\"--background: #000\" class=\"no-scroll\">\n  \n\n  <ion-header collapse=\"condense\">\n    \n  </ion-header>\n  \n<div id=\"container\" style=\"flex: vertical;\">\n    <img style=\"width:100%;\" src=\"http://192.168.1.30:8080/?action=stream\" />\n</div>\n\n\n<!--Bouton Capture-->\n<div class=\"rightButton\">\n  <div>\n    <ion-button color=\"danger\" (click)=\"callGotoFunction()\"><ion-icon name=\"camera\"></ion-icon>Test GOTO</ion-button>\n  </div>\n  <div>\n    <ion-button color=\"danger\" (click)=\"callGetPosFunction()\"><ion-icon name=\"move\"></ion-icon>Test getPosition</ion-button>\n  </div>\n  <div>\n    <ion-button color=\"danger\" (click)=\"callRafalesFunction()\"><ion-icon name=\"albums-outline\"></ion-icon>Test Rafales</ion-button>\n  </div>\n  <div>\n    <ion-button color=\"danger\" (click)=\"callRecordFunction()\"><ion-icon name=\"videocam-outline\"></ion-icon>Test Enregistrements</ion-button>\n  </div>\n  <div>\n    <ion-button color=\"danger\" (click)=\"callRafalesFunction()\"><ion-icon name=\"image-outline\"></ion-icon>Test Captures</ion-button>\n  </div>\n</div>\n\n\n\n<!--Menu pour ouvrir le drawer du bas-->\n<ion-button id=\"openModal\" color=\"danger\">\n  <ion-icon size name=\"menu\"></ion-icon>\n</ion-button>\n\n<ion-modal class=\"no-scroll\" trigger=\"openModal\" [initialBreakpoint]=\"0.5\">\n  <ng-template>\n    <ion-content style=\"--background: #131313;\">\n<div>\n  <div class=\"divCustom\">\n    <ion-button class=\"buttonPlacement\" color=\"dark\" (click)=\"GuiObjManager()\"><ion-icon color=\"danger\" name=\"planet-outline\"></ion-icon></ion-button>\n    <ion-button class=\"buttonPlacement\" color=\"dark\" (click)=\"CallExternalJSFileFunction()\"><ion-icon color=\"danger\" name=\"camera\"></ion-icon></ion-button>\n  </div>\n  <div class=\"divCustom\">\n    <ion-button class=\"buttonPlacement\" color=\"dark\" (click)=\"CallExternalJSFileFunction()\"><ion-icon color=\"danger\" name=\"camera\"></ion-icon></ion-button>\n    <ion-button class=\"buttonPlacement\" color=\"dark\" (click)=\"CallExternalJSFileFunction()\"><ion-icon color=\"danger\" name=\"camera\"></ion-icon></ion-button>\n  </div>\n  <!--Slider-->\n  <div>\n    <ion-item color=\"dark\" style=\"position: relative;\">\n      <p style=\"color: #5c000c\">Vitesse de déplacements : </p>\n      <ion-range min=\"1\" max=\"6\" step=\"1\" value=\"1\" snaps color=\"danger\">\n        <ion-label slot=\"start\">1</ion-label>\n        <ion-label slot=\"end\">6</ion-label>\n      </ion-range>\n    </ion-item>\n  </div>\n</div>\n    </ion-content>\n  </ng-template>\n</ion-modal>\n\n</ion-content>\n";
 
 /***/ })
 

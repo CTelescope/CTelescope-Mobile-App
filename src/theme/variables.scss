@@ -125,7 +125,7 @@
   --ion-color-danger-shade: #cf3c4f;
   --ion-color-danger-tint: #ed576b;
 
-    --ion-color-dark: #f4f5f8;
+    --ion-color-dark: #0e0e0e;
     --ion-color-dark-rgb: 244,245,248;
     --ion-color-dark-contrast: #000000;
     --ion-color-dark-contrast-rgb: 0,0,0;
@@ -233,4 +233,13 @@
 
     --ion-card-background: #1e1e1e;
   }
+
+  @font-face {
+    font-family: Montserrat;
+    src: url("../assets/fonts/Montserrat.ttf"); //change url accordingly
+    }
+    
+    :root {
+    --ion-font-family: Montserrat;
+    }
 }
