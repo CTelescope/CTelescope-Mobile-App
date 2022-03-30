@@ -4,12 +4,6 @@ import { ModalController } from '@ionic/angular';
 import { SimpleModalPage } from '../simple-modal/simple-modal.page';
 import { Router } from '@angular/router';
 
-declare var GotoFunction;
-declare var getPosFunction;
-declare var rafalesFunction;
-declare var recordFunction;
-declare var CapturesFunction;
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -19,21 +13,68 @@ export class HomePage {
   safeUrl: any;
   constructor(private menu: MenuController, private modalCtrl: ModalController, private route: Router) {}
 
-  callGotoFunction() {
-    GotoFunction();
-  }
-  callGetPosFunction(){
-    getPosFunction();
-  }
-  callRafalesFunction(){
-    rafalesFunction();
-  }
-  callRecordFunction(){
-    recordFunction();
+  async callGotoFunction() {
+    try {     
+      const response = await fetch('http://192.168.1.30:5000/api/doSteps', {
+        method: 'post',
+        headers:  {"Content-Type":"application/json"},
+        body: JSON.stringify({mode:1, nb_steps:2400*16})
+      });
+      console.log('Completed!', response);
+    } catch(err) {
+      console.error(`Error: ${err}`);
+    }
   }
 
-  callCapturesFunction(){
-    CapturesFunction();
+  async callGetPosFunction(){
+    try {     
+      const response = await fetch('http://192.168.1.30:5000/api/position', {
+        method: 'get',
+      });
+      console.log('Completed!', response);
+    } catch(err) {
+      console.error(`Error: ${err}`);
+    }
+  }
+
+  async callRafalesFunction(){
+    try {     
+      const response = await fetch('http://192.168.1.30:5000/api/rafales', {
+        method: 'post',
+        headers:  {"Content-Type":"application/json"},
+        body: JSON.stringify({duree:5, fps:24})
+      });
+      console.log('Completed!', response);
+    } catch(err) {
+      console.error(`Error: ${err}`);
+    }
+  }
+  
+  async callRecordFunction(){
+    try {     
+      const response = await fetch('http://192.168.1.30:5000/api/enregistrement', {
+        method: 'post',
+        headers:  {"Content-Type":"application/json"},
+        body: JSON.stringify({duree_record:5, fps_record:24})
+      });
+      console.log('Completed!', response);
+    } catch(err) {
+      console.error(`Error: ${err}`);
+    }
+  }
+
+  async callCapturesFunction(){
+    try {     
+      const response = await fetch('http://192.168.1.30:5000/api/captures', {
+        method: 'post',
+        
+        headers:  {"Content-Type":"application/json"},
+        body: JSON.stringify({})
+      });
+      console.log('Completed!', response);
+    } catch(err) {
+      console.error(`Error: ${err}`);
+    }
   }
   
   GuiObjManager(){
