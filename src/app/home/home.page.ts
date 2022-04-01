@@ -4,11 +4,16 @@ import { ModalController } from '@ionic/angular';
 import { SimpleModalPage } from '../simple-modal/simple-modal.page';
 import { Router } from '@angular/router';
 
+let record:boolean = false;
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
+
+
 export class HomePage {
   safeUrl: any;
   constructor(private menu: MenuController, private modalCtrl: ModalController, private route: Router) {}
@@ -36,7 +41,40 @@ export class HomePage {
       console.error(`Error: ${err}`);
     }
   }
-
+  booleanVariable:boolean = false
+  IconButton:boolean = false
+  async record(){
+    if(record == false) {
+      console.log("Début de l'enregistrement")
+      try {     
+        const response = await fetch('http://192.168.1.30:5000/api/enregistrement_start', {
+          method: 'post',
+          headers:  {"Content-Type":"application/json"},
+          body: JSON.stringify({FPS:24})
+        });
+        console.log('Completed!', response);
+      } catch(err) {
+        console.error(`Error: ${err}`);
+      }
+      this.booleanVariable = true;
+      record = true;
+    } 
+    else if(record == true)
+    {
+      console.log("Fin de l'enregistrement")
+      try {     
+        const response = await fetch('http://192.168.1.30:5000/api/enregistrement_stop', {
+          method: 'get'
+        });
+        console.log('Completed!', response);
+      } catch(err) {
+        console.error(`Error: ${err}`);
+      }
+      this.booleanVariable = false;
+      record=false;
+    }
+  }
+  
   async callRafalesFunction(){
     try {     
       const response = await fetch('http://192.168.1.30:5000/api/rafales', {

@@ -10,18 +10,18 @@
   
 
   <ion-header collapse="condense">
-    
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
   </ion-header>
-  
+
+
 <div id="container" style="flex: vertical;">
     <img style="width:100%;" src="http://192.168.1.30:8080/?action=stream" />
 </div>
 
-
 <!--Bouton Capture-->
-<div class="rightButton">
+<form class="rightButton">
   <div>
-    <ion-button color="danger" (click)="GotoFunction()"><ion-icon name="camera"></ion-icon>Test GOTO</ion-button>
+    <ion-button color="danger" (click)="callGotoFunction()"><ion-icon name="camera"></ion-icon>Test GOTO</ion-button>
   </div>
   <div>
     <ion-button color="danger" (click)="callGetPosFunction()"><ion-icon name="move"></ion-icon>Test getPosition</ion-button>
@@ -35,9 +35,16 @@
   <div>
     <ion-button color="danger" (click)="callCapturesFunction()"><ion-icon name="image-outline"></ion-icon>Test Captures</ion-button>
   </div>
-</div>
+  <div>
+    <ion-button  color="danger" class="circledButton" (click)="record()">
+      <ion-icon color="warning" size="large" *ngIf="booleanVariable; else alternateIcon" name="square"></ion-icon>
+    </ion-button>
+  </div>
+</form>
 
-
+<ng-template #alternateIcon>
+  <ion-icon size="large" color="warning" name="ellipse"></ion-icon>
+</ng-template>
 
 <!--Menu pour ouvrir le drawer du bas-->
 <ion-button id="openModal" color="danger">

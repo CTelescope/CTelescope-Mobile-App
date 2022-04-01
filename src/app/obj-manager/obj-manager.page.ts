@@ -24,10 +24,10 @@ public objects: any;
 ionViewDidLoad()
 {
   var objets = [];
-  this.readAPI('http://192.168.1.87:5050/api/objets').subscribe(data =>{
+  this.readAPI('http://192.168.1.30:5000/api/objets').subscribe(data =>{
     console.log(data);
     this.objects = [];
- 
+
 
     for(var i = 0; i < JSON.stringify(data).length ;i++){
       this.objects.push(
@@ -61,6 +61,7 @@ ionViewDidLoad()
       this.objectData.Constellation = data['Nom_const'];
     });*/
   }
+  
   homePageButton(){
     this.route.navigate(['/home']);
   }
