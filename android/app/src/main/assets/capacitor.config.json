@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ctelescope",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,86 @@
+.fullheight {
+    height: 100%;
+}
+  
+.xc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+    background: var(--ion-color-primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-toolbar{
+    --background: transparent;
+    max-width: 735px;
+    
+    img{
+        height: 40px;
+        margin:  6px;
+        padding: 3px
+    }
+
+    span {
+        font-family: 'quanty';
+        font-weight: 400;
+        font-size: 1.2em;
+        color: #F2F2F2;
+    }
+}
+
+ion-slides {
+
+    font-family: 'Poppins-Regular', sans-serif;
+    color:#090909;
+    height: 100%;
+
+    background: white; 
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    max-width: 735px;
+
+    ion-slide {
+      display: block;
+
+      img {
+        max-height: 400;
+      }
+      .slider-text {
+        h2{
+          font-weight: 600;
+        }
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+ion-footer {
+    div { border-radius: 18px 18px 0 0;}
+    ion-item {
+        --background: transparent;
+        max-width: 735px;
+        
+        ion-label {
+            color: #F2F2F2;
+            padding: 15px 5px;
+            .title {
+                font-family: 'Poppins-Regular';
+                font-weight: 700;
+                font-size: 1.4em;
+            }
+            p {
+                font-family: "Poppins-Regular";
+                margin-top: 2vh;
+                font-size: 1em;
+            }
+        }
+    }
+}
