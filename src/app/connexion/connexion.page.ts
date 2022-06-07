@@ -1,7 +1,10 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit , OnDestroy} from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { API, Routes_API } from '../libs/ctelescope_api'
 import { Router } from '@angular/router';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { CT_Controller } from '../libs/ctelescope_rest_api/ct_controller_api';
+
 
 @Component({
   selector: 'app-connexion',
@@ -9,66 +12,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./connexion.page.scss'],
 })
 
-
-export class ConnexionPage implements OnInit, OnDestroy {
+export class ConnexionPage extends AppComponent implements OnInit, OnDestroy {
  
-constructor(private controller: ToastController, 
-            private api : API, private route: Router) {
+  constructor(statusBar : StatusBar, toast: ToastController ,private route: Router, private ct_controller : CT_Controller) {
+      super(statusBar, toast)
   }
 
   ngOnInit() { 
     console.log("ConnexionPage initialised")
   } 
-
+  
   ionViewWillEnter(){
-    this.connection()
+    this.pairing()
   }
 
   ngOnDestroy(){
     console.log("ConnexionPage destroyed")
   }
 
-  private toastMsg(msg: string, color: string,icon : string) {
-    this.controller.create({
-      color: color,
-      icon: icon,
-      position: "top",
-      translucent: true,
-      duration: 2000,
-      message: msg,
-      buttons: [
-        {
-          text: "Ok",
-          handler: () => {}
-        } 
-      ],
-    }).then(toast => { toast.present(); });
-  }
-
-  public async connection(){
-    let payload = JSON.stringify({ 'Handshake' : "123456789" });
-    let recieved : object;
-
-    await this.api.SendToAPI(Routes_API.POST_CONNECTION, payload)
-      .then( response => { recieved = response })
-      .catch( error => { recieved = {"result":(error["name"])}})
-
-    console.log("connection result : ",recieved)
-
-    if (recieved != undefined && recieved["result"] != undefined)
+  public async pairing(){
+    let con_result = await this.ct_controller.connection()
+    if (con_result == 0)
     {
-      if (recieved["result"] == "ACK")
-      {
-        this.toastMsg("Paired successfully", "white", "wifi")
-        this.route.navigate(['/home']);
-      }
-      else if (recieved["result"] == "NACK")
-        this.toastMsg(`Failed to pair with the telescope : Bad handshake`, "warning", "close");
-        
-      else{
-        this.toastMsg("Unable to reach the telescope", "danger", "warning")
-      }
+      this.CreateToast("Paired successfully", "white", "wifi")
+      this.route.navigate(['/home']);
     }
+    else if (con_result == 1)
+      this.CreateToast("Failed to pair with the telescope : Bad handshake", "warning", "close");
+    else
+      this.CreateToast("Unable to reach the telescope", "danger", "warning")
   }
 }
 

@@ -1,8 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { AppComponent } from './../app.component';
+import { Component } from '@angular/core';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 import { Router } from '@angular/router';
-import {Platform} from "@ionic/angular"
-
+import { Platform, ToastController } from "@ionic/angular"
+import { CT_Camera } from '../libs/ctelescope_rest_api/ct_camera_api';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,14 +12,13 @@ import {Platform} from "@ionic/angular"
 })
 
 
-export class HomePage implements OnInit {
+export class HomePage extends AppComponent{
 
-  public URL_MJPG_STREAM : string = "http://150.214.222.102/mjpg/video.mjpg?camera=1&timestamp=1654387165581"
-
-  constructor(private screenOrientation: ScreenOrientation, private platform: Platform, private route: Router) {
+  constructor(statusBar : StatusBar, toast: ToastController, private screenOrientation: ScreenOrientation, private platform: Platform, 
+              private route: Router, public ct_camera : CT_Camera ) {
+    super(statusBar, toast)
     // define screen orientation
     this.defScreenOrientation()
-
     // Handle the Hardware Back Button 
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
 
@@ -27,14 +28,6 @@ export class HomePage implements OnInit {
 
       processNextHandler();
     });
-  }
-
-  ngOnInit() { 
-    console.log("HomePage initialised")
-  }
-
-  ngOnDestroy(){
-    console.log("HomePage destroyed")
   }
 
   private defScreenOrientation(){

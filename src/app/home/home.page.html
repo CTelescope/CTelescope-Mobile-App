@@ -1,1 +1,37 @@
-<img class=" " src="{{URL_MJPG_STREAM}}"/>
+<ion-content [fullscreen]="true">
+    <div class="abs_container mjpg_stream">
+        <img [src]="ct_camera.URI_MJPG_STREAM"/>
+    </div>
+    
+    <div class="abs_container ion-button-padding">
+        <ion-button fill="clear" color="white">
+            <ion-icon name="menu" size="large"></ion-icon>
+        </ion-button>
+    </div>
+    
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed" #fab  >
+
+        <ion-fab-button color="primary" >
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-list side="top">
+            <ion-fab-button color="primary" (click)="fab.activated = false ; ct_camera.manual_record()">
+                <ion-icon [name]="!ct_camera.recording? 'videocam':'stop'"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="primary">
+                <ion-icon name="film"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="primary">
+                <ion-icon name="images"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="primary">
+                <ion-icon name="image"></ion-icon>
+            </ion-fab-button> 
+            <ion-fab-button color="primary">
+                <ion-icon name="settings"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+
+    </ion-fab>
+</ion-content>

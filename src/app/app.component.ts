@@ -1,5 +1,6 @@
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,28 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 
-export class AppComponent {
-  constructor( private statusBar: StatusBar ) { 
-    statusBar.hide()
-   }
+export class AppComponent implements OnInit {
+
+  constructor( private statusBar: StatusBar, private toast: ToastController ) { }
+
+  ngOnInit() {
+    this.statusBar.hide()
+  }
+
+   protected CreateToast(msg: string, color: string,icon : string) {
+    this.toast.create({
+      color: color,
+      icon: icon,
+      position: "top",
+      translucent: true,
+      duration: 2000,
+      message: msg,
+      buttons: [
+        {
+          text: "Ok",
+          handler: () => {}
+        } 
+      ],
+    }).then(toast => { toast.present(); });
+  }
 }
