@@ -1,3 +1,4 @@
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  constructor( ) {  }
+  constructor( private statusBar: StatusBar ) { 
+    statusBar.hide()
+   }
 }

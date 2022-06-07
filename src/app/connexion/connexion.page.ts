@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { Component, OnInit , OnDestroy} from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { API, Routes_API } from '../libs/ctelescope_api'
 import { Router } from '@angular/router';
@@ -11,16 +10,23 @@ import { Router } from '@angular/router';
 })
 
 
-export class ConnexionPage implements OnInit {
+export class ConnexionPage implements OnInit, OnDestroy {
  
-constructor(private statusBar: StatusBar, private controller: ToastController, 
+constructor(private controller: ToastController, 
             private api : API, private route: Router) {
-    statusBar.hide()
   }
 
   ngOnInit() { 
-    this.connection()
+    console.log("ConnexionPage initialised")
   } 
+
+  ionViewWillEnter(){
+    this.connection()
+  }
+
+  ngOnDestroy(){
+    console.log("ConnexionPage destroyed")
+  }
 
   private toastMsg(msg: string, color: string,icon : string) {
     this.controller.create({
@@ -44,26 +50,25 @@ constructor(private statusBar: StatusBar, private controller: ToastController,
     let recieved : object;
 
     await this.api.SendToAPI(Routes_API.POST_CONNECTION, payload)
-      .then( response => { recieved = response } )
-      .catch( error => { recieved = {"result":(error["name"])} 
-    })
+      .then( response => { recieved = response })
+      .catch( error => { recieved = {"result":(error["name"])}})
 
-    console.log(recieved)
+    console.log("connection result : ",recieved)
 
-    if (recieved !== undefined && recieved["result"] != undefined)
+    if (recieved != undefined && recieved["result"] != undefined)
     {
       if (recieved["result"] == "ACK")
       {
         this.toastMsg("Paired successfully", "white", "wifi")
-        
         this.route.navigate(['/home']);
       }
       else if (recieved["result"] == "NACK")
-        this.toastMsg("Failed to pair with the telescope", "warning", "close");
+        this.toastMsg(`Failed to pair with the telescope : Bad handshake`, "warning", "close");
         
       else{
-        this.toastMsg(`Unable to reach the telescope : ${recieved["result"]}`, "danger", "warning")
+        this.toastMsg("Unable to reach the telescope", "danger", "warning")
       }
     }
   }
 }
+
