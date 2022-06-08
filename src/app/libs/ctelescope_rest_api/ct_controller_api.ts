@@ -13,6 +13,15 @@ enum Routes_API {
 }
 
 @Injectable({ providedIn: 'root' })
+export class CT_Position{
+  public RA:string  = "?";
+  public Dec:string = "?";
+  public Name:string = "?";
+  public Alt:string = "?";
+  public Azm:string = "?";
+}
+
+@Injectable({ providedIn: 'root' })
 export class CT_Controller {
 
     public constructor(private http : HTTP_REST_API_REQ) { }

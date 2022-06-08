@@ -3,11 +3,25 @@
         <img [src]="ct_camera.URI_MJPG_STREAM"/>
     </div>
     
-    <div class="abs_container ion-button-padding">
-        <ion-button fill="clear" color="white">
-            <ion-icon name="menu" size="large"></ion-icon>
-        </ion-button>
-    </div>
+    <ion-header class="ion-no-border">
+        <ion-toolbar> 
+            <ion-button slot="start" fill="clear" color="white">
+                <ion-icon name="menu" size="large"></ion-icon>
+            </ion-button>
+
+            <div class="info_position_container">
+                <p class="element"><b>Name : </b>{{Position.Name}}</p>
+                <p class="element"><b>RA : </b>{{Position.RA}}</p>
+                <p class="element"><b>Dec : </b>{{Position.Dec}}</p>
+                <p class="element"><b>Alt : </b>{{Position.Alt}}</p>
+                <p class="element"><b>Azm : </b>{{Position.Azm}}</p>
+            </div>
+
+            <ion-button slot="end" color="white" fill="clear">
+                <ion-icon name="moon" size="large" ></ion-icon>
+            </ion-button>
+        </ion-toolbar>
+    </ion-header>
     
     <ion-fab horizontal="end" vertical="bottom" slot="fixed" #fab  >
 
