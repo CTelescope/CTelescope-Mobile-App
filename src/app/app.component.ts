@@ -1,4 +1,6 @@
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
@@ -10,13 +12,19 @@ import { ToastController } from '@ionic/angular';
 
 export class AppComponent implements OnInit {
 
-  constructor( private statusBar: StatusBar, private toast: ToastController ) { }
+  constructor( private statusBar: StatusBar, private toast: ToastController,
+               protected route : Router, protected screenOrientation: ScreenOrientation ) { }
 
   ngOnInit() {
     this.statusBar.hide()
   }
 
-   protected CreateToast(msg: string, color: string,icon : string) {
+  protected ReturnToConnectionPage(){
+    this.route.navigate(['/connexion']);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
+
+  protected CreateToast(msg: string, color: string,icon : string) {
     this.toast.create({
       color: color,
       icon: icon,

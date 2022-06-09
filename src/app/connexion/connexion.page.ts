@@ -1,9 +1,10 @@
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+import { CT_Features } from './../libs/ctelescope_rest_api/ct_features_api';
 import { AppComponent } from './../app.component';
 import { Component, OnInit , OnDestroy} from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
-import { CT_Controller } from '../libs/ctelescope_rest_api/ct_controller_api';
 
 
 @Component({
@@ -14,8 +15,9 @@ import { CT_Controller } from '../libs/ctelescope_rest_api/ct_controller_api';
 
 export class ConnexionPage extends AppComponent implements OnInit, OnDestroy {
  
-  constructor(statusBar : StatusBar, toast: ToastController ,private route: Router, private ct_controller : CT_Controller) {
-      super(statusBar, toast)
+  constructor(private ct_features : CT_Features, screenOrientation: ScreenOrientation, 
+              route : Router, statusBar: StatusBar, toast: ToastController) {
+      super(statusBar, toast, route, screenOrientation)
   }
 
   ngOnInit() { 
@@ -31,7 +33,7 @@ export class ConnexionPage extends AppComponent implements OnInit, OnDestroy {
   }
 
   public async pairing(){
-    let con_result = await this.ct_controller.connection()
+    let con_result = await this.ct_features.connection()
     if (con_result == 0)
     {
       this.CreateToast("Paired successfully", "white", "wifi")

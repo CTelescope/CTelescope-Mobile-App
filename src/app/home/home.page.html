@@ -1,51 +1,86 @@
 <ion-content [fullscreen]="true">
-    <div class="abs_container mjpg_stream">
-        <img [src]="ct_camera.URI_MJPG_STREAM"/>
-    </div>
-    
-    <ion-header class="ion-no-border">
-        <ion-toolbar> 
-            <ion-button slot="start" fill="clear" color="white">
-                <ion-icon name="menu" size="large"></ion-icon>
-            </ion-button>
 
-            <div class="info_position_container">
-                <p class="element"><b>Name : </b>{{Position.Name}}</p>
-                <p class="element"><b>RA : </b>{{Position.RA}}</p>
-                <p class="element"><b>Dec : </b>{{Position.Dec}}</p>
-                <p class="element"><b>Alt : </b>{{Position.Alt}}</p>
-                <p class="element"><b>Azm : </b>{{Position.Azm}}</p>
-            </div>
+  <div class="abs_container mjpg_stream">
+      <img [src]="ct_camera.URI_MJPG_STREAM"/>
+  </div>
 
-            <ion-button slot="end" color="white" fill="clear">
-                <ion-icon name="moon" size="large" ></ion-icon>
-            </ion-button>
-        </ion-toolbar>
-    </ion-header>
-    
-    <ion-fab horizontal="end" vertical="bottom" slot="fixed" #fab  >
-
-        <ion-fab-button color="primary" >
-            <ion-icon name="camera"></ion-icon>
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <!-- Bouton Menu  -->
+      <ion-button id="menu_button" slot="start" fill="clear" color="white">
+          <ion-icon name="menu" size="large"></ion-icon>
+      </ion-button>
+      <!-- Menu -->
+      <ion-popover trigger="menu_button" [dismissOnSelect]="true" side="left">
+        <ng-template>
+          <ion-content>
+            <ion-title>
+              <ion-text color="white">CTelescope Menu</ion-text>
+            </ion-title>
+            <ion-list>
+              <ion-item [button]="true" color="dark">
+                <ion-icon slot="start" color="light" name="planet-outline"></ion-icon>
+                <ion-label color="white">Catalogues</ion-label>
+              </ion-item>
+              <ion-item [button]="true" color="dark">
+                <ion-icon slot="start" color="light" name="library-outline"></ion-icon>
+                <ion-label color="white">Gallerie</ion-label>
+              </ion-item>
+              <ion-item [button]="true" color="dark">
+                <ion-icon slot="start" color="light" name="location-outline"></ion-icon>
+                <ion-label color="white">Coordinate</ion-label>
+              </ion-item>
+              <ion-item [button]="true" color="dark">
+                <ion-icon slot="start" color="light" name="settings-outline"></ion-icon>
+                <ion-label color="white">Camera Options</ion-label>
+              </ion-item>
+              <hr>
+              <ion-item color="dark" >
+                <ion-label color="light">Controller</ion-label>
+                <ion-toggle color="medium" (ionChange)="updateHandController()" [checked]="enable_controller"></ion-toggle>
+              </ion-item>
+              <ion-item color="dark">
+                <ion-label color="light">Tracking mode</ion-label>
+                <ion-toggle color="medium" (ionChange)="updateTrackingMode()" [checked]="enable_tracking_mode"></ion-toggle>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+      <!-- Postion -->
+      <div class="info_position_container">
+          <p class="element"><b>Name : </b>{{position.Name}}</p>
+          <p class="element"><b>RA : </b>{{position.RA}}</p>
+          <p class="element"><b>Dec : </b>{{position.Dec}}</p>
+          <p class="element"><b>Alt : </b>{{position.Alt}}</p>
+          <p class="element"><b>Azm : </b>{{position.Azm}}</p>
+      </div>
+      <!-- Bouton Theme -->
+      <ion-button slot="end" color="white" fill="clear">
+          <ion-icon name="moon" size="large" ></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Menu captures & enregistrement -->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" #fab  >
+    <ion-fab-button color="primary" >
+        <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+        <ion-fab-button color="primary" (click)="fab.activated = false ; ct_camera.manual_record()">
+            <ion-icon [name]="!ct_camera.recording? 'videocam':'stop'"></ion-icon>
         </ion-fab-button>
-
-        <ion-fab-list side="top">
-            <ion-fab-button color="primary" (click)="fab.activated = false ; ct_camera.manual_record()">
-                <ion-icon [name]="!ct_camera.recording? 'videocam':'stop'"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="primary">
-                <ion-icon name="film"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="primary">
-                <ion-icon name="images"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="primary">
-                <ion-icon name="image"></ion-icon>
-            </ion-fab-button> 
-            <ion-fab-button color="primary">
-                <ion-icon name="settings"></ion-icon>
-            </ion-fab-button>
-        </ion-fab-list>
-
-    </ion-fab>
+        <ion-fab-button color="primary">
+            <ion-icon name="film"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="primary">
+            <ion-icon name="images"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="primary">
+            <ion-icon name="image"></ion-icon>
+        </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- Raquette de commande  -->
+  <app-hand-controller *ngIf="enable_controller" ></app-hand-controller>
 </ion-content>

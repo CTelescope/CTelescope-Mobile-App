@@ -10,10 +10,10 @@ ion-header{
     margin-left:1.5vw;
     margin-right:1.5vw;
   }
+
   .info_position_container{
     display: flex;
     justify-content: center;
-    width: 100%; 
     // border: 1px green solid;
 
     .element {
@@ -25,18 +25,26 @@ ion-header{
   
   }
 }
-
+app-hand-controller{
+  position:absolute;
+  bottom:0;
+  left:0;
+}
 ion-content{
   .abs_container {
     position:absolute;
     // border:RED  solid 1px;
+    width: 100%;
+    height: 100%;
   }
-
+  img{
+    object-fit:scale-down;
+  }
   .mjpg_stream {
     display: flex;
     align-items: center;
-    
-    height:  100%;
+    height: 100%;
+    width: 100%;
     overflow:hidden;
   }
 }

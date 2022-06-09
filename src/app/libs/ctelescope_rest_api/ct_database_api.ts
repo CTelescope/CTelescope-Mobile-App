@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { HTTP_REST_API_REQ } from "../http_rest_api_req"
+import { HTTP_Requests } from "../http_requests"
 
 enum Routes_API {
   GET_OBJ             = "/api/objets",
@@ -19,6 +19,6 @@ enum Routes_API {
 
 @Injectable({ providedIn: 'root' })
 export class CT_DataBase{
-    public constructor(private http : HTTP_REST_API_REQ ) {
+    public constructor(private REST_API : HTTP_Requests ) {
     }
 }

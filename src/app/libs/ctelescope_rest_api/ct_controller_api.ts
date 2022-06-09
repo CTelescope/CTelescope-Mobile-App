@@ -1,15 +1,15 @@
 import { Injectable } from "@angular/core"
-import { HTTP_REST_API_REQ } from "../http_rest_api_req";
+import { HTTP_Requests } from "../http_requests";
 
 enum Routes_API {
-  POST_CONNECTION     = "/api/connection",  
-  POST_DO_STEPS       = "/api/control/doSteps",
-  POST_SPEED          = "/api/control/speed",
-  GET_SPEED           = "/api/control/speed",          
-  POST_POSITION       = "/api/control/position",
-  GET_POSITION        = "/api/control/position",
-  POST_GOTO           = "/api/control/goto",    
-  POST_MODE_SUIVI     = "/api/control/trackedMode",
+  POST_STEPS             = "/api/control/doSteps",
+  POST_SPEED             = "/api/control/speed",
+  GET_SPEED              = "/api/control/speed",          
+  POST_POSITION          = "/api/control/position",
+  GET_POSITION           = "/api/control/position",
+  POST_GOTO              = "/api/control/goto",    
+  POST_TRACKED_MODE      = "/api/control/trackedMode",
+  GET_SIDERAL_SPEED_SPMS = "/api/control/sideral_speed_spms"
 }
 
 @Injectable({ providedIn: 'root' })
@@ -21,31 +21,27 @@ export class CT_Position{
   public Azm:string = "?";
 }
 
+
+
 @Injectable({ providedIn: 'root' })
 export class CT_Controller {
 
-    public constructor(private http : HTTP_REST_API_REQ) { }
+    public constructor(private REST_API : HTTP_Requests ) { }
 
-    public async connection(){
-      let payload = { 'Handshake' : "123456789" };
-      let recieved : object = {};
-      let value : number;
-
-      await this.http.post(Routes_API.POST_CONNECTION, payload)
-        .then( response => { console.log(response);recieved = response })
-        .catch( error => { 
-          console.log(error);recieved = {"result":(error["name"])}
-        })
-  
-      if (recieved != undefined && recieved["result"] != undefined)
-      {
-        if (recieved["result"] == "ACK")
-          value = 0;         
-        else if (recieved["result"] == "NACK")
-          value = 1;         
-        else
-          value = 2
-      }
-      return value
+    public set_speed(payload:object):void{
+      this.REST_API.post(Routes_API.POST_SPEED, payload)
     }
+
+    public async get_sideral_speed_SPMS():Promise<object>{
+      return await this.REST_API.get(Routes_API.GET_SIDERAL_SPEED_SPMS)
+    }
+
+    public send_steps(payload:object):void{
+      this.REST_API.post(Routes_API.POST_STEPS, payload)
+    }
+
+    public async get_speed():Promise<object>{
+      return await this.REST_API.get(Routes_API.GET_SPEED)
+    }
+
 }

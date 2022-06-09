@@ -24,3 +24,34 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/* Global Class */
+ion-popover {
+    --backdrop-opacity: 0;
+    --min-width: 300px;
+    --height: 100%;
+    --offset-y:8px;
+    ion-title{
+        text-align: left;
+        margin-top: 15px;
+        font-family: "quanty"; 
+        font-weight: 400;
+        font-size:large;
+    }
+    hr {
+        margin: 5px 30px ;
+        border-top: 1px solid #555;
+    }
+
+    ion-list,
+    ion-item{
+        background-color: #000 !important;
+        ion-label{
+            font-family: "Poppins";
+            font-size:1em;
+            font-weight: 300;
+        }
+      }
+         
+}
+

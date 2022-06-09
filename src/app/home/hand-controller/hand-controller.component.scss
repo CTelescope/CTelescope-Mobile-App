@@ -1,0 +1,51 @@
+.container {  
+    display: grid;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "raquette"
+      "slide_ra"
+      "slide_dec";
+  }
+  
+  .raquette { grid-area: raquette; }
+  
+  .slide_ra { grid-area: slide_ra; }
+  
+  .slide_dec { grid-area: slide_dec; }
+  
+  .raquette {
+    margin: 0 auto;
+    ion-button{ opacity: 75%; }
+    ion-grid{
+      width: 220px;
+      height: 220px;
+      ion-row {
+        height: 33.33%;
+        ion-button {
+          height: 100%;
+          width: 100%;
+          ion-icon {
+            color: red;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+}
+ion-range{
+  --height: 20px;
+  --bar-background-active: #333;
+  --bar-background: #222;
+  --bar-height: 3px;
+  --knob-size: 12px;
+  --knob-border-radius: 50%;
+  --bar-border-radius: 20px;
+  --knob-box-shadow: 0px 0px 0px 3px #333;
+
+  p{ 
+    font-family: poppins; 
+    width: 25px;
+  }
+}

@@ -1,0 +1,77 @@
+<div class="raquette">
+  <div class="slide_ra">
+    <ion-range min="0" max="6" step="1" value="1" snaps
+               [max]="speedRangeArray.length - 1" [(ngModel)]="rangeAD" 
+               (ionChange)="update_range()">
+      <p slot="start" size="small" color="dark">AD</p>
+    </ion-range>
+  </div>
+  <div class="slide_dec">
+    <ion-range min="0" max="6" step="1" value="1" snaps
+               [max]="speedRangeArray.length - 1" [(ngModel)]="rangeDEC" 
+               (ionChange)="update_range()">
+      <p slot="start" size="small" color="dark">DEC</p>
+    </ion-range>
+  </div>  
+  <ion-grid>
+    <!-- Top -->
+    <ion-row>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(-1,1)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up" style="transform: rotate(-410deg);"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(0,1)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(1,1)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up" style="transform: rotate(410deg);"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- Middle -->
+    <ion-row>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(-1,0)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up" style="transform: rotate(-90deg);"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(1,0)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up" style="transform: rotate(90deg);"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- Bottom -->
+    <ion-row>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(-1,-1)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up" style="transform: rotate(-130deg);"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(0,-1)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up" style="transform: rotate(180deg);"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="dark" (mousedown)="hold_send_steps(1,-1)" 
+              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+          <ion-icon color="light" name="arrow-up" style="transform: rotate(130deg);"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
