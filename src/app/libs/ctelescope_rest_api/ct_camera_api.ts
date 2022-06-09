@@ -16,7 +16,7 @@ export class CT_Camera {
     public recording : boolean = false
   
     // Default values camera 
-    private resolution : object = {Width : 1920, Height : 1080}
+    private resolution : object = { Width : 1920, Height : 1080 }
     private manual_record_conf : object = { FPS : 24 }
     private burst_conf : object = { Duree :5, FPS : 12 }
     private record_conf : object = { Duree :10, FPS : 30 }
