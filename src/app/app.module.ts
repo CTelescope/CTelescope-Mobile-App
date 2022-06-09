@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,8 @@ import { IonicModule, IonicRouteStrategy, Platform, ToastController } from '@ion
 import { HttpClientModule } from '@angular/common/http'
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+
+import { IonicGestureConfig } from '../utils/IonicGestureConfig'
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +22,7 @@ import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/n
     Platform,
     StatusBar,
     ToastController,
+    {provide: HAMMER_GESTURE_CONFIG, useClass: IonicGestureConfig}
   ],
   bootstrap: [AppComponent],
 })

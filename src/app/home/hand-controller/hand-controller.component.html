@@ -17,20 +17,17 @@
     <!-- Top -->
     <ion-row>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(-1,1)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(-1,1)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up" style="transform: rotate(-410deg);"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(0,1)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(0,1)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(1,1)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(1,1)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up" style="transform: rotate(410deg);"></ion-icon>
         </ion-button>
       </ion-col>
@@ -38,16 +35,14 @@
     <!-- Middle -->
     <ion-row>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(-1,0)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(-1,0)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up" style="transform: rotate(-90deg);"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col>
       </ion-col>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(1,0)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(1,0)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up" style="transform: rotate(90deg);"></ion-icon>
         </ion-button>
       </ion-col>
@@ -55,20 +50,17 @@
     <!-- Bottom -->
     <ion-row>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(-1,-1)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(-1,-1)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up" style="transform: rotate(-130deg);"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(0,-1)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(0,-1)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up" style="transform: rotate(180deg);"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="dark" (mousedown)="hold_send_steps(1,-1)" 
-              (mouseup)="stop_send_steps()" (mouseleave)="stop_send_steps()">
+        <ion-button ion-long-press color="dark" (pressed)="hold_send_steps(1,-1)" (pressEnded)="stop_send_steps()">
           <ion-icon color="light" name="arrow-up" style="transform: rotate(130deg);"></ion-icon>
         </ion-button>
       </ion-col>

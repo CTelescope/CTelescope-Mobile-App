@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HandControllerComponent } from './hand-controller.component';
+import { LongPressModule } from 'ionic-long-press';
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, IonicModule, RouterModule],
+  imports: [ CommonModule, FormsModule, IonicModule, RouterModule, LongPressModule ],
   declarations: [HandControllerComponent],
   exports: [HandControllerComponent]
 })

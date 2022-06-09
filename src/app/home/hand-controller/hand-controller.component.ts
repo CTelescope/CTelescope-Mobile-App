@@ -72,6 +72,7 @@ export class HandControllerComponent extends AppComponent{
 
      this.timeoutSender = setInterval(() => {
         this.ct_controller.send_steps(payload)
+        console.log("test")
      }, 100);
  }
  
