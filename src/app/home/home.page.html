@@ -70,13 +70,13 @@
         <ion-fab-button color="primary" (click)="fab.activated = false ; ct_camera.manual_record()">
             <ion-icon [name]="!ct_camera.recording? 'videocam':'stop'"></ion-icon>
         </ion-fab-button>
-        <ion-fab-button color="primary">
+        <ion-fab-button color="primary" (click)="fab.activated = false ; ct_camera.record()">
             <ion-icon name="film"></ion-icon>
         </ion-fab-button>
-        <ion-fab-button color="primary">
+        <ion-fab-button color="primary" (click)="fab.activated = false ; ct_camera.burst()">
             <ion-icon name="images"></ion-icon>
         </ion-fab-button>
-        <ion-fab-button color="primary">
+        <ion-fab-button color="primary" (click)="fab.activated = false ; ct_camera.capture()">
             <ion-icon name="image"></ion-icon>
         </ion-fab-button>
     </ion-fab-list>

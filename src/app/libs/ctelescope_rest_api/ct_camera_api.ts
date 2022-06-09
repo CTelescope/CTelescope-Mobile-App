@@ -3,7 +3,7 @@ import { HTTP_Requests } from "../http_requests"
 
 enum Routes_API {
     POST_CAPTURE        = "/api/camera/captures",            
-    POST_RECORD         = "/api/camera/enregistrement_start",
+    POST_RECORD         = "/api/camera/enregistrement",
     POST_RAFALE         = "/api/camera/rafale",              
     POST_RECORD_START   = "/api/camera/enregistrement_start",
     POST_RECORD_STOP    = "/api/camera/enregistrement_stop",  
@@ -12,7 +12,7 @@ enum Routes_API {
 @Injectable({ providedIn: 'root' })
 export class CT_Camera {
 
-    public URI_MJPG_STREAM : string = "http://150.214.222.102/mjpg/video.mjpg?camera=1&timestamp=1654387165581"
+    public URI_MJPG_STREAM : string = "http://150.214.222.102/mjpg/video.mjpg?camera=1"
     public recording : boolean = false
   
     // Default values camera 
