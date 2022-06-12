@@ -27,7 +27,7 @@
 
 /* Global Class */
 .ion-alert-delete-cata {
-    --background: rgba(15,15,15,0.8);
+    --background: rgba(15,15,15,0.9);
 
     .alert-wrapper {
         .alert-head {
@@ -43,12 +43,13 @@
 
         .alert-button:last-child {
             color: rgb(151, 0, 0);
+            font-weight: bold;
         }
     }
 }
 .ion-alert-add-cata {
-    --background: rgba(15,15,15,0.8);
-
+    --background: rgba(15,15,15,0.9);
+    
     .alert-wrapper {
         .alert-head {
             h2 {
@@ -56,14 +57,14 @@
                 font-family: "Poppins"!important;
                 font-weight: 300;
             }
+            
         }
-        .alert-button{
-            color: rgb(224, 224, 224);
-        }
+        .alert-message
+        { color:red!important; }
 
-        .alert-button:last-child {
-            color: rgb(16, 177, 24);
-        }
+        .alert-input{border-bottom:1px white solid;}
+        .alert-button{ color: rgb(224, 224, 224); }
+        .alert-button:last-child { color: rgb(16, 177, 24); }
     }
 }
 

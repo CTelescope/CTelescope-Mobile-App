@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { CatalogsPageRoutingModule } from './catalogs-routing.module';
 
 import { CatalogsPage } from './catalogs.page';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -14,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     IonicModule,
     CatalogsPageRoutingModule,
-    ReactiveFormsModule
   ],
   declarations: [CatalogsPage,]
 })

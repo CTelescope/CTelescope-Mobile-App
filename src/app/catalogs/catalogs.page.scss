@@ -14,15 +14,19 @@ ion-content{
 
     .name_cata_button{
         width:100% !important;
-        height:10vh !important;
+        height:40px !important;
+
         font-family: Poppins;
         font-size: 1em;
         font-weight: 300;
     }
 
     .trash_button{
-        width:10vh !important;
-        height:10vh !important;
+        width:40px !important;
+        height:40px !important;
+    }
 
+    .trash_button:hover{
+        --background: #970000;
     }
 }

@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: CatalogsPage
+  },
+  {
+    path: 'catalog-objects',
+    loadChildren: () => import('./catalog-objects/catalog-objects.module').then( m => m.CatalogObjectsPageModule)
   }
 ];
 
