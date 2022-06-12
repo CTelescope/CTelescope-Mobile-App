@@ -1,0 +1,20 @@
+<ion-header [translucent]="true" class="ion-header ion-no-border" color="dark">
+  <ion-toolbar color="dark">
+    <ion-button slot="start" (click)="returnToHomePage()" color="white" fill="clear">
+        <ion-icon size="large" name="close"></ion-icon>
+    </ion-button>
+    <ion-title>List of catalogues</ion-title>
+    <ion-button slot="end" color="white" fill="clear" (click)="openAddCataPage()">Add</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let catalogues of catalogues" color="dark">
+      <ion-button class="name_cata_button ion-no-border"  size="large" (click)="PageCata(catalogues.Id_cata)">
+          <ion-text>{{catalogues.Nom_cata}}</ion-text>
+      </ion-button>
+      <ion-button slot="end" class="trash_button" (click)="DeleteCata(catalogues.Id_cata)">
+        <ion-icon size="large" name="trash"></ion-icon>
+      </ion-button>
+  </ion-item>
+</ion-content>
