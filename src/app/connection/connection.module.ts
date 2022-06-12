@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ListCataloguesPageRoutingModule } from './list-catalogues-routing.module';
+import { ConnectionPageRoutingModule } from './connection-routing.module';
 
-import { ListCataloguesPage } from './list-catalogues.page';
+import { ConnectionPage } from './connection.page';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListCataloguesPageRoutingModule,
-    
+    ConnectionPageRoutingModule,
   ],
-  declarations: [ListCataloguesPage,]
+  declarations: [ConnectionPage]
 })
-export class ListCatalogsPageModule {}
+export class ConnectionPageModule {}

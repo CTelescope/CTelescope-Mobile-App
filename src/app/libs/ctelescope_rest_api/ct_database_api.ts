@@ -57,4 +57,11 @@ export class CT_DataBase{
     public async delete_catalog(ID:number):Promise<object>{
       return await this.REST_API.delete(Routes_API.DEL_CATA_BY_ID + ID);
     }  
+
+    public async add_catalog(Nom_cata:string):Promise<object>{
+     
+      let payload : object = {"Nom_cata": Nom_cata}
+
+      return await this.REST_API.post(Routes_API.POST_ADD_CATA, payload)
+    }
 }

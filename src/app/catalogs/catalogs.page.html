@@ -1,0 +1,51 @@
+<ion-header [translucent]="true" class="ion-header ion-no-border" color="dark">
+  <ion-toolbar color="dark">
+    <ion-button slot="start" (click)="returnToHomePage()" color="white" fill="clear">
+        <ion-icon size="large" name="close"></ion-icon>
+    </ion-button>
+    <ion-title>List of catalogs</ion-title>
+    <ion-button slot="end" color="white" fill="clear" (click)="AlertCreateCata()" >
+      <ion-icon size="large" name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let catalogues of catalogues" color="dark">
+      <ion-button class="name_cata_button ion-no-border"  size="large" > 
+        <!-- (click)="PageCata(catalogues.Id_cata)"a -->
+        <ion-text>{{catalogues.Nom_cata}}</ion-text>
+      </ion-button>
+      <ion-button slot="end" class="trash_button" (click)="AlertDeleteCata(catalogues.Id_cata, catalogues.Nom_cata)">
+        <ion-icon size="large" name="remove-circle-outline"></ion-icon>
+      </ion-button>
+  </ion-item>
+</ion-content>
+
+<!-- <ion-modal [isOpen]="false" id="a" trigger="add_cata_button">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Ajouter un catalogue</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content >
+      <ion-list >
+        <form  [formGroup]="add_cata_form" (ngSubmit)="CreateCata()">
+          <ion-item>
+            <ion-label position="floating">Nom du catalogue</ion-label>
+            <ion-input formControlName="Nom_cata" type="text" required></ion-input>
+          </ion-item>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" color="primary" shape="full" expand="block">
+                Ajout du catalogue
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-modal> -->

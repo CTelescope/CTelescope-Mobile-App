@@ -47,7 +47,7 @@ export class HomePage extends AppComponent implements OnInit{
   }
 
   public openCatalogsPage(){
-    this.route.navigate(['/list-catalogs']);
+    this.route.navigate(['/catalogs']);
   }
 
   public updateHandController():void { this.enable_controller = !this.enable_controller }

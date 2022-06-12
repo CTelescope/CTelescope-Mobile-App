@@ -4,20 +4,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'connexion',
+    redirectTo: 'connection',
     pathMatch: 'full'
   },
   {
-    path: 'connexion',
-    loadChildren: () => import('./connexion/connexion.module').then( m => m.ConnexionPageModule)
+    path: 'connection',
+    loadChildren: () => import('./connection/connection.module').then( m => m.ConnectionPageModule)
   },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'list-catalogs',
-    loadChildren: () => import('./list-catalogues/list-catalogues.module').then( m => m.ListCatalogsPageModule)
+    path: 'catalogs',
+    loadChildren: () => import('./catalogs/catalogs.module').then( m => m.CatalogsPageModule)
   },
 ];
 

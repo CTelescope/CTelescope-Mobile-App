@@ -26,11 +26,53 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 /* Global Class */
+.ion-alert-delete-cata {
+    --background: rgba(15,15,15,0.8);
+
+    .alert-wrapper {
+        .alert-head {
+            h2 {
+                color: rgb(224, 224, 224)!important;
+                font-family: "Poppins"!important;
+                font-weight: 300;
+            }
+        }
+        .alert-button{
+            color: rgb(224, 224, 224);
+        }
+
+        .alert-button:last-child {
+            color: rgb(151, 0, 0);
+        }
+    }
+}
+.ion-alert-add-cata {
+    --background: rgba(15,15,15,0.8);
+
+    .alert-wrapper {
+        .alert-head {
+            h2 {
+                color: rgb(224, 224, 224)!important;
+                font-family: "Poppins"!important;
+                font-weight: 300;
+            }
+        }
+        .alert-button{
+            color: rgb(224, 224, 224);
+        }
+
+        .alert-button:last-child {
+            color: rgb(16, 177, 24);
+        }
+    }
+}
+
 ion-popover {
     --backdrop-opacity: 0;
     --min-width: 300px;
     --height: 100%;
     --offset-y:8px;
+
     ion-title{
         text-align: left;
         margin-top: 15px;
@@ -44,8 +86,10 @@ ion-popover {
     }
 
     ion-list,
-    ion-item{
+    ion-item {
+
         background-color: #000 !important;
+
         ion-label{
             font-family: "Poppins"!important;
             font-size:1em;
