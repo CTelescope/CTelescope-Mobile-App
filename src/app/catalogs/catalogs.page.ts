@@ -22,19 +22,24 @@ export class CatalogsPage extends AppComponent implements OnInit{
               private ct_database : CT_DataBase, public selected_catalog : Selected_Catalog,) {
       super(statusBar, toast, route, screenOrientation)
   }
-  async ionViewWillEnter(){
-    await this.loadCatalogues()
-  }
-
-  public returnToHomePage (){
-    this.route.navigate(['/home']);
+  ionViewWillEnter(){
+    this.loadCatalogues()
   }
   
   private async loadCatalogues()
   {
     this.catalogues = await this.ct_database.get_catalogs()
   }
+
+  public returnToHomePage (){
+    this.route.navigate(['/home']);
+  }
   
+  public OpenCatalog(Id){
+    this.selected_catalog.Id = Id
+    this.route.navigate(['/catalogs/catalog-objects']);
+  }
+
   public async CreateCata(Nom_cata:string){
     await this.ct_database.add_catalog(Nom_cata)
     await this.loadCatalogues()

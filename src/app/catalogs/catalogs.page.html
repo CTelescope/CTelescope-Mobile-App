@@ -12,8 +12,7 @@
 
 <ion-content>
   <ion-item *ngFor="let catalogues of catalogues" color="dark">
-      <ion-button class="name_cata_button ion-no-border"  size="large" > 
-        <!-- (click)="PageCata(catalogues.Id_cata)"a -->
+      <ion-button class="name_cata_button ion-no-border" size="large" (click)="OpenCatalog(catalogues.Id_cata)" > 
         <ion-text slot="start">{{catalogues.Nom_cata}}</ion-text>
       </ion-button>
       <ion-button slot="end" class="trash_button" (click)="AlertDeleteCata(catalogues.Id_cata, catalogues.Nom_cata)">
@@ -21,31 +20,3 @@
       </ion-button>
   </ion-item>
 </ion-content>
-
-<!-- <ion-modal [isOpen]="false" id="a" trigger="add_cata_button">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Ajouter un catalogue</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content >
-      <ion-list >
-        <form  [formGroup]="add_cata_form" (ngSubmit)="CreateCata()">
-          <ion-item>
-            <ion-label position="floating">Nom du catalogue</ion-label>
-            <ion-input formControlName="Nom_cata" type="text" required></ion-input>
-          </ion-item>
-          <ion-row>
-            <ion-col>
-              <ion-button type="submit" color="primary" shape="full" expand="block">
-                Ajout du catalogue
-              </ion-button>
-            </ion-col>
-          </ion-row>
-        </form>
-      </ion-list>
-    </ion-content>
-  </ng-template>
-</ion-modal> -->

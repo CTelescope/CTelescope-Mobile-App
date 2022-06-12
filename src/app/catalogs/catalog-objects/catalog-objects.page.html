@@ -1,9 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>catalog-objects</ion-title>
+<ion-header [translucent]="true" class="ion-header ion-no-border" color="dark">
+  <ion-toolbar color="dark">
+    <ion-button slot="start" (click)="return()" color="white" fill="clear">
+        <ion-icon size="large" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>List of objects</ion-title>
+    <ion-button slot="end" color="white" fill="clear" (click)="AddObjet()" >
+      <!-- (click)="AlertCreateCata()" -->
+      <ion-icon size="large" name="add-circle-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content >
+  <ion-grid >
+    <ion-item color="black">
+      <ion-row >
+        <ion-col><div>Name</div></ion-col>
+        <ion-col>Goto</ion-col>
+        <ion-col><div>RA</div></ion-col>
+        <ion-col><div>Dec</div></ion-col>
+        <ion-col><div>Magnitude</div></ion-col>
+        <ion-col><div>Type</div></ion-col>
+        <ion-col><div>Constellation</div></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-item >
+      <ion-item *ngFor="let objects of objects" color="black">
+        <ion-row fixed="true">
+          <ion-col ><div>{{objects.Nom_obj}}</div></ion-col>
+          <ion-col>
+            <div>
+              <ion-button color="white">
+                <ion-icon name="telescope-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-col>
+          <ion-col><div>{{objects.Ascension_droite}}</div></ion-col>
+          <ion-col><div>{{objects.Declinaison}}</div></ion-col>
+          <ion-col><div>{{objects.Magnitude}}</div></ion-col>
+          <ion-col><div>{{objects.Nom_type}}</div></ion-col>
+          <ion-col><div>{{objects.Nom_const}}</div></ion-col>
+          <ion-col>
+            <div>
+              <ion-button slot="end" class="trash_button">
+                <ion-icon  name="remove-circle-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+  </ion-grid>
 </ion-content>

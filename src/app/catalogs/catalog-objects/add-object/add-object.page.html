@@ -1,0 +1,66 @@
+<ion-header [translucent]="true" class="ion-header ion-no-border" color="dark">
+  <ion-toolbar color="dark">
+    <ion-button slot="start" (click)="return()" color="white" fill="clear">
+        <ion-icon size="large" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Add object</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list lines="full">
+    <form [formGroup]="objetForm" (ngSubmit)="CreateObject()">
+      <div class="formContainer">
+        <div class="col">
+          <ion-item color="transparent">
+            <ion-label position="floating">Nom de l'objet</ion-label>
+            <ion-input formControlName="Nom_obj" type="text" required></ion-input>
+          </ion-item >
+          <ion-item color="transparent">
+            <ion-label position="floating">Ascension Droite</ion-label>
+            <ion-input formControlName="Ascension_droite" type="text" required></ion-input>
+          </ion-item >
+          <ion-item color="transparent">
+            <ion-label position="floating">Declinaison</ion-label>
+            <ion-input formControlName="Declinaison" type="text" required></ion-input>
+          </ion-item>
+          <ion-item color="transparent">
+            <ion-label position="floating">Magnitude</ion-label>
+            <ion-input formControlName="Magnitude" type="number"></ion-input>
+          </ion-item>
+        </div>
+        <div class="col">
+          <ion-item color="transparent">
+            <ion-label position="floating">Type</ion-label>
+            <ion-select interface="popover"  formControlName="Id_type"  required>
+              <ion-select-option  *ngFor="let type of Types" value={{type.Id_type}}>{{type.Nom_type}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+    
+          <ion-item color="transparent">
+            <ion-label position="floating">Constellation</ion-label>
+            <ion-select interface="popover" formControlName="Id_const" required>
+              <ion-select-option *ngFor="let constellation of Constellations" value={{constellation.Id_const}}>{{constellation.Nom_const}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+    
+          <ion-item color="transparent">
+            <ion-label position="floating">Catalogue</ion-label>
+            <ion-select interface="popover" formControlName="Id_cata" required>
+              <ion-select-option  *ngFor="let catalogue of Catalogues" value={{catalogue.Id_cata}}>{{catalogue.Nom_cata}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <ion-row>
+        <ion-col>
+          <!-- <ion-alert-controller> </ion-alert-controller> -->
+          <ion-button type="submit" color="primary" shape="full" expand="block" class="ion-margin">
+            <ion-icon name="checkmark-outline" color="success"></ion-icon>
+            <ion-text class="ion-padding">Confirm choice</ion-text>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

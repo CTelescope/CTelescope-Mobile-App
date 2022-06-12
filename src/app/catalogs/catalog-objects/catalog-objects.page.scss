@@ -1,0 +1,26 @@
+  
+ion-row{
+ align-content: center;
+ box-sizing:content-box;
+ text-align: center;
+
+ align-items: center;
+ width: 1000%;
+}
+
+ion-title{
+    font-family: Poppins;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: white;
+}
+
+.trash_button{
+    width:40px !important;
+    height:40px !important;
+}
+
+.trash_button:active{
+    --background: #970000;
+}
+  

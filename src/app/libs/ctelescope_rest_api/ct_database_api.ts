@@ -18,32 +18,30 @@ enum Routes_API {
   POST_ADD_CATA       = "/api/catalogue/add"
 }
 
-
 @Injectable({ providedIn: 'root'})
-export class Selected_Catalog{ Id: string; }
+export class Selected_Catalog{ Id: number; }
 
 export class Objet{
-  constructor( public Id_obj: number, public Nom_obj: string, public Ascension_droite: string,
-               public Declinaison: string, public Magnitude: number,public Nom_type: string,
-               public Nom_const: string){
-        this.Id_obj = null;
-        this.Nom_obj = "";
-        this.Ascension_droite = "";
-        this.Declinaison = "";
-        this.Magnitude = null;
-        this.Nom_type = "";
-        this.Nom_const = "";
-      }
-};
+  constructor(public Nom_obj: string, 
+              public Ascension_droite : string,
+              public Declinaison: string,
+              public Magnitude: number,
+              public Id_type: number, 
+              public Id_const: number,
+              public Id_cata: number, 
+              public Id_obj : number,){
+  }
+}
 
-export var ObjSelec: Objet={  
+export var Selected_Object: Objet={  
   Id_obj : null,
+  Id_cata : null,
+  Id_const : null,
+  Id_type : null,
   Nom_obj : '',
   Ascension_droite : '',
   Declinaison  : '',
   Magnitude : null,
-  Nom_type : '',
-  Nom_const : ''
 }
 
 @Injectable({ providedIn: 'root' })
@@ -63,5 +61,21 @@ export class CT_DataBase{
       let payload : object = {"Nom_cata": Nom_cata}
 
       return await this.REST_API.post(Routes_API.POST_ADD_CATA, payload)
+    }
+
+    public async get_catalog_objects(Id:number):Promise<object>{
+      return await this.REST_API.get(Routes_API.GET_OBJ_CATA_BY_ID + Id)
+    }
+
+    public async add_objet(objet : Objet):Promise<object>{
+      return await this.REST_API.post(Routes_API.POST_ADD_OBJ, objet)      
+    }
+
+    public async get_constelation():Promise<object>{
+      return await this.REST_API.get(Routes_API.GET_CONSTS)
+    }
+
+    public async get_type(){
+      return await this.REST_API.get(Routes_API.GET_TYPES)
     }
 }

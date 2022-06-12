@@ -1,0 +1,20 @@
+ion-title{
+    font-family: Poppins;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: white;
+}
+
+.formContainer{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col {
+    margin:auto;
+    max-width: 600px;
+}
