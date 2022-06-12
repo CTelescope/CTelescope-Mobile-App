@@ -1,10 +1,5 @@
 import { CT_Controller } from 'src/app/libs/ctelescope_rest_api/ct_controller_api';
-import { AppComponent } from './../../app.component';
-import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
-import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-hand-controller',
@@ -12,7 +7,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./hand-controller.component.scss'],
 })
 
-export class HandControllerComponent extends AppComponent{
+export class HandControllerComponent implements OnDestroy {
 
   // Hold button timeout
   private timeoutSender: any;
@@ -22,29 +17,15 @@ export class HandControllerComponent extends AppComponent{
   public rangeDEC: number = 1;
   private speedMotorAD: any;
   private speedMotorDEC: any;
-  private steps_per_ms : number;
 
-  constructor(public ct_controller : CT_Controller,screenOrientation: ScreenOrientation, route : Router, statusBar: StatusBar, toast: ToastController) {
-    // On herite des attribues de AppComponent
-    super(statusBar, toast, route, screenOrientation)
+  constructor(public ct_controller : CT_Controller) {
     // Getting values from CTelescope-Server
     this.restore_speed()
-    this.get_steps_per_ms() 
   }
 
 
-  private async get_steps_per_ms():Promise<void>{
-    let data : object;
-    let value : number
-    data = await this.ct_controller.get_sideral_speed_SPMS() 
-
-    if (data != undefined && data["value"] != undefined)
-      this.steps_per_ms = data["value"]
-    else{
-      value = 0
-      this.CreateToast("Unable to reach the telescope", "danger", "warning")
-      this.ReturnToConnectionPage()
-    }
+  ngOnDestroy(): void {
+    this.stop_send_steps()
   }
 
   private async restore_speed():Promise<void> {
@@ -60,19 +41,18 @@ export class HandControllerComponent extends AppComponent{
     }
   }
   
-  public hold_send_steps(AD_steps_dir:number, DEC_steps_dir:number):void{
+  public hold_send_steps(AD_hc_output:number, DEC_hc_output:number):void{
     let payload: object 
-
+    // values -1, 1, 0
     payload = { 
-       "AD_steps"  : Math.round(this.steps_per_ms * this.speedRangeArray[this.rangeAD] * AD_steps_dir), 
-       "DEC_steps" : Math.round(this.steps_per_ms * this.speedRangeArray[this.rangeDEC] * DEC_steps_dir)
+       "AD_hc_output"  : AD_hc_output,
+       "DEC_hc_output" : DEC_hc_output
      }
 
      console.log(payload)
 
      this.timeoutSender = setInterval(() => {
-        this.ct_controller.send_steps(payload)
-        console.log("test")
+        this.ct_controller.send_hd_output(payload)
      }, 100);
  }
  

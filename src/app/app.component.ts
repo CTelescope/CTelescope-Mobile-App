@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
   }
 
   protected ReturnToConnectionPage(){
-    this.route.navigate(['/connexion']);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    this.route.navigate(['/connexion']);
   }
 
   protected CreateToast(msg: string, color: string,icon : string) {

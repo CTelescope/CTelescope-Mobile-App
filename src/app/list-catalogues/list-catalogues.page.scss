@@ -1,0 +1,28 @@
+ion-title{
+    font-family: Poppins;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: white;
+}
+
+ion-content{
+    ion-item{
+        border-bottom: 1px solid white;
+        margin-left: 8vw;
+        margin-right: 8vw;
+    }
+
+    .name_cata_button{
+        width:100% !important;
+        height:10vh !important;
+        font-family: Poppins;
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    .trash_button{
+        width:10vh !important;
+        height:10vh !important;
+
+    }
+}

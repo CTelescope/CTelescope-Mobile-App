@@ -18,7 +18,7 @@
               <ion-text color="white">CTelescope Menu</ion-text>
             </ion-title>
             <ion-list>
-              <ion-item [button]="true" color="dark">
+              <ion-item [button]="true" color="dark" (click)="openCatalogsPage()">
                 <ion-icon slot="start" color="light" name="planet-outline"></ion-icon>
                 <ion-label color="white">Catalogues</ion-label>
               </ion-item>
@@ -30,7 +30,7 @@
                 <ion-icon slot="start" color="light" name="location-outline"></ion-icon>
                 <ion-label color="white">Coordinate</ion-label>
               </ion-item>
-              <ion-item [button]="true" color="dark">
+              <ion-item [button]="true" color="dark" >
                 <ion-icon slot="start" color="light" name="settings-outline"></ion-icon>
                 <ion-label color="white">Camera Options</ion-label>
               </ion-item>

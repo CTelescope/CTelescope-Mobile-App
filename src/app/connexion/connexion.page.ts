@@ -21,16 +21,10 @@ export class ConnexionPage extends AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() { 
-    console.log("ConnexionPage initialised")
-  } 
-  
-  ionViewWillEnter(){
     this.pairing()
-  }
+  } 
 
-  ngOnDestroy(){
-    console.log("ConnexionPage destroyed")
-  }
+  ngOnDestroy(){  }
 
   public async pairing(){
     let con_result = await this.ct_features.connection()

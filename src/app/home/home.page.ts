@@ -5,7 +5,7 @@ import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/n
 import { Router } from '@angular/router';
 import { Platform, ToastController } from "@ionic/angular"
 import { CT_Camera } from '../libs/ctelescope_rest_api/ct_camera_api';
-import { CT_Position } from '../libs/ctelescope_rest_api/ct_controller_api';
+import { CT_Position } from '../libs/ctelescope_rest_api/ct_position';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { Geolocation } from '@capacitor/geolocation';
 
@@ -38,14 +38,16 @@ export class HomePage extends AppComponent implements OnInit{
   }
 
   ngOnInit() {
-
-
     // TODO demander user -> Alt & Azm ou check gps
     // const printCurrentPosition = async () => {
     //   const coordinates = await Geolocation.getCurrentPosition();
     
     //   console.log('Current position:', coordinates);
     // };
+  }
+
+  public openCatalogsPage(){
+    this.route.navigate(['/list-catalogs']);
   }
 
   public updateHandController():void { this.enable_controller = !this.enable_controller }
