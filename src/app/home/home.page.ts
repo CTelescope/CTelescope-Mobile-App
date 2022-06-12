@@ -1,3 +1,4 @@
+import { CT_Controller } from 'src/app/libs/ctelescope_rest_api/ct_controller_api';
 import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
@@ -17,11 +18,12 @@ import { alertController } from '@ionic/core';
 
 export class HomePage extends AppComponent implements OnInit{
 
-  public enable_controller : boolean;
   public enable_tracking_mode : boolean;
+  public enable_controller : boolean;
 
   constructor(private platform : Platform, public ct_camera : CT_Camera, public position : CT_Position, private geolocation: Geolocation,
-              screenOrientation: ScreenOrientation, route : Router, statusBar: StatusBar, toast: ToastController) {
+              private ct_controller : CT_Controller ,screenOrientation: ScreenOrientation, route : Router, statusBar: StatusBar, 
+              toast: ToastController) {
     // On herite des attribues de AppComponent
     super(statusBar, toast, route, screenOrientation)
     // define screen orientation
@@ -31,6 +33,8 @@ export class HomePage extends AppComponent implements OnInit{
       this.ReturnToConnectionPage()      
       processNextHandler();
     });
+
+    this.enable_tracking_mode = false
     // Hide the hand controller
     this.enable_controller = false
   }
@@ -89,7 +93,10 @@ export class HomePage extends AppComponent implements OnInit{
 
   public updateHandController():void { this.enable_controller = !this.enable_controller }
 
-  public updateTrackingMode():void { this.enable_tracking_mode = !this.enable_tracking_mode }
+  public updateTrackingMode():void { 
+    this.enable_tracking_mode = !this.enable_tracking_mode 
+    this.ct_controller.tracked_mode(this.enable_tracking_mode)
+  }
 
   private defScreenOrientation():void{
     this.platform.ready().then(() => {
