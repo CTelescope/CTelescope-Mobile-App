@@ -68,8 +68,8 @@ export class HomePage extends AppComponent implements OnInit{
           text: 'OK',
           handler: data => {
             if (data.Latitude != '' && data.Longitude != '') {
-              this.position.Lat = data.Latitude
-              this.position.Lng = data.Longitude
+              this.position.Lat = data.Latitude.toString();
+              this.position.Lng = data.Longitude.toString();
               return true
             }
             else{
