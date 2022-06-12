@@ -13,7 +13,7 @@ export class HandControllerComponent implements OnDestroy {
   private timeoutSender: any;
   // Range Bars
   public speedRangeArray: any[] = [0.5, 1, 8, 16, 32, 64];
-  public rangeAD: number = 1;
+  public rangeAD: number  = 1;
   public rangeDEC: number = 1;
   private speedMotorAD: any;
   private speedMotorDEC: any;

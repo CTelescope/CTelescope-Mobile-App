@@ -1,0 +1,49 @@
+<ion-header [translucent]="true" class="ion-header ion-no-border" color="dark">
+  <ion-toolbar color="dark">
+    <ion-button slot="start" (click)="returnToHomePage()" color="white" fill="clear">
+        <ion-icon size="large" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Camera settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section id="settings">
+    <div>
+      <ion-item color="transparent">
+        <ion-label>Résolution</ion-label>
+        <ion-select (ionChange)="sendResolution()" value="1920x1080" okText="Valider" cancelText="Retour">
+          <ion-select-option value="3096x2080">3096x2080</ion-select-option>
+          <ion-select-option value="2560x1440">2560x1440</ion-select-option>
+          <ion-select-option value="2048x1536">2048x1536</ion-select-option>
+          <ion-select-option value="1920x1080">1920x1080</ion-select-option>
+          <ion-select-option value="1600x900">1600x900</ion-select-option>
+          <ion-select-option value="1360x768">1360x768</ion-select-option>
+          <ion-select-option value="1280x720">1280x720</ion-select-option>
+          <ion-select-option value="1024x768">1024x768</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item color="transparent">
+        <ion-label>Fréquence d'images par secondes</ion-label>
+        <ion-select (ionChange)="sendFrameFrequency()" value="24" okText="Valider" cancelText="Retour">
+          <ion-select-option value="60">60 FPS</ion-select-option>
+          <ion-select-option value="30">30 FPS</ion-select-option>
+          <ion-select-option value="24">24 FPS</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item color="transparent">
+        <ion-label>Durée (en secondes)</ion-label>
+        <ion-select (ionChange)="sendCaptureLenght()" value="5" okText="Valider" cancelText="Retour">
+          <ion-select-option value="30">30 secondes</ion-select-option>
+          <ion-select-option value="25">25 secondes</ion-select-option>
+          <ion-select-option value="20">20 secondes</ion-select-option>
+          <ion-select-option value="15">15 secondes</ion-select-option>
+          <ion-select-option value="10">10 secondes</ion-select-option>
+          <ion-select-option value="5">5 secondes</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+  </section>
+</ion-content>

@@ -11,6 +11,7 @@ import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 
 import { IonicGestureConfig } from '../utils/IonicGestureConfig'
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { IonicGestureConfig } from '../utils/IonicGestureConfig'
     Platform,
     StatusBar,
     ToastController,
+    Geolocation,
     {provide: HAMMER_GESTURE_CONFIG, useClass: IonicGestureConfig}
   ],
   bootstrap: [AppComponent],

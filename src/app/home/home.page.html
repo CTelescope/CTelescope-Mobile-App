@@ -30,9 +30,9 @@
                 <ion-icon slot="start" color="light" name="location-outline"></ion-icon>
                 <ion-label color="white">Coordinate</ion-label>
               </ion-item>
-              <ion-item [button]="true" color="dark" >
+              <ion-item [button]="true" color="dark" (click)="openCameraSettingsPage()" >
                 <ion-icon slot="start" color="light" name="settings-outline"></ion-icon>
-                <ion-label color="white">Camera Options</ion-label>
+                <ion-label color="white">Camera Settings</ion-label>
               </ion-item>
               <hr>
               <ion-item color="dark" >
@@ -52,8 +52,8 @@
           <p class="element"><b>Name : </b>{{position.Name}}</p>
           <p class="element"><b>RA : </b>{{position.RA}}</p>
           <p class="element"><b>Dec : </b>{{position.Dec}}</p>
-          <p class="element"><b>Alt : </b>{{position.Alt}}</p>
-          <p class="element"><b>Azm : </b>{{position.Azm}}</p>
+          <p class="element"><b>Lat : </b>{{position.Lat}}</p>
+          <p class="element"><b>Lon : </b>{{position.Lng}}</p>
       </div>
       <!-- Bouton Theme -->
       <ion-button slot="end" color="white" fill="clear">

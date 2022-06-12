@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'catalogs',
     loadChildren: () => import('./catalogs/catalogs.module').then( m => m.CatalogsPageModule)
   },
+  {
+    path: 'camera-settings',
+    loadChildren: () => import('./camera-options/camera-settings.module').then( m => m.CameraSettingsPageModule)
+  },
 ];
 
 @NgModule({
