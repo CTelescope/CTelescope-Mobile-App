@@ -87,6 +87,10 @@ export class HomePage extends AppComponent implements OnInit{
     this.route.navigate(['/catalogs']);
   }
 
+  public openGallery(){
+    this.route.navigate(['/gallery']);
+  }
+
   public openCameraSettingsPage(){
     this.route.navigate(['/camera-settings']);
   }

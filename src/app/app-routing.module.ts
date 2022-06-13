@@ -23,7 +23,10 @@ const routes: Routes = [
     path: 'camera-settings',
     loadChildren: () => import('./camera-options/camera-settings.module').then( m => m.CameraSettingsPageModule)
   },
-
+  {
+    path: 'gallery',
+    loadChildren: () => import('./gallery/gallery.module').then( m => m.GalleryPageModule)
+  },
   
 ];
 

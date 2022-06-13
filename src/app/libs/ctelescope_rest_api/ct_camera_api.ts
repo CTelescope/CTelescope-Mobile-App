@@ -12,15 +12,15 @@ enum Routes_API {
 @Injectable({ providedIn: 'root' })
 export class CT_Camera {
 
-    public URI_MJPG_STREAM : string = "http://150.214.222.102/mjpg/video.mjpg?camera=1"
+    public URI_MJPG_STREAM : string = "http://192.168.1.30:8000/stream.mjpg"
     public recording : boolean = false
   
     // Default values camera 
-    private resolution : object = { Width : 1920, Height : 1080 }
-    private manual_record_conf : object = { FPS : 24 }
-    private burst_conf : object = { Duree :5, FPS : 12 }
-    private record_conf : object = { Duree :10, FPS : 30 }
-    
+    private resolution : object = {"WIDTH" : 1280, "HEIGHT" : 768 }
+    private manual_record_conf : object = { "FPS" : 24, "WIDTH" : 1280, "HEIGHT" : 768  }
+    private burst_conf : object = { "Duree" :5, "FPS" : 12, "WIDTH" : 1280, "HEIGHT" : 768 }
+    private record_conf : object = { "Duree" :5, "FPS" : 1, "WIDTH" : 1280, "HEIGHT" : 768 }
+
     public constructor(private REST_API : HTTP_Requests  ) { }
 
     public manual_record(){

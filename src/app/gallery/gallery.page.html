@@ -1,0 +1,29 @@
+<ion-header [translucent]="true" class="ion-header ion-no-border" color="dark">
+  <ion-toolbar color="dark">
+    <ion-button slot="start" (click)="returnToHomePage()" color="white" fill="clear">
+        <ion-icon size="large" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Gallerie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="outer-div">
+  <div class="inner-div">  
+    <ion-button class="round" (click)="openRecordGallery()" >
+      Enregistrements
+      <ion-icon slot="end" name="film"></ion-icon>
+    </ion-button>
+
+    <ion-button class="round" (click)="openCaptureGallery()">
+      Captures
+      <ion-icon slot="end" name="image"></ion-icon>
+    </ion-button>
+
+    <ion-button class="round" (click)="openBurstGallery()">
+      Rafales
+      <ion-icon slot="end" name="images"></ion-icon>
+    </ion-button>
+  </div>
+</div>
+</ion-content>
