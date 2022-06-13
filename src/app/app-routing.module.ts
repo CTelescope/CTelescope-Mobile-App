@@ -23,6 +23,8 @@ const routes: Routes = [
     path: 'camera-settings',
     loadChildren: () => import('./camera-options/camera-settings.module').then( m => m.CameraSettingsPageModule)
   },
+
+  
 ];
 
 @NgModule({

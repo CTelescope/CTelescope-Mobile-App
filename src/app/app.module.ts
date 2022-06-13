@@ -9,6 +9,7 @@ import { IonicModule, IonicRouteStrategy, Platform, ToastController } from '@ion
 import { HttpClientModule } from '@angular/common/http'
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+import { VarGlobal } from './app.component';
 
 import { IonicGestureConfig } from '../utils/IonicGestureConfig'
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
@@ -24,7 +25,7 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     StatusBar,
     ToastController,
     Geolocation,
-    {provide: HAMMER_GESTURE_CONFIG, useClass: IonicGestureConfig}
+    {provide: HAMMER_GESTURE_CONFIG, useClass: IonicGestureConfig},VarGlobal
   ],
   bootstrap: [AppComponent],
 })

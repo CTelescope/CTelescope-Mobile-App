@@ -98,7 +98,7 @@ export class CatalogsPage extends AppComponent implements OnInit{
       alert.present();
     }
     else{
-      this.CreateToast("Default catalogs cannot be deleted", "warning", "warning")
+      this.CreateToast("Les catalogues par défaut ne peuvent être supprimer", "warning", "warning")
     }
   }
 }

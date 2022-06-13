@@ -28,14 +28,12 @@ export class Objet{
               public Magnitude: number,
               public Id_type: number, 
               public Id_const: number,
-              public Id_cata: number, 
               public Id_obj : number,){
   }
 }
 
 export var Selected_Object: Objet={  
   Id_obj : null,
-  Id_cata : null,
   Id_const : null,
   Id_type : null,
   Nom_obj : '',

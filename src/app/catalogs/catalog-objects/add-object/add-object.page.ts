@@ -60,17 +60,17 @@ export class AddObjectPage extends AppComponent implements OnInit {
        this.objetForm.get('Nom_obj').value, this.objetForm.get('Ascension_droite').value,
        this.objetForm.get('Declinaison').value, this.objetForm.get('Magnitude').value,
        this.objetForm.get('Id_type').value, this.objetForm.get('Id_const').value,
-       this.objetForm.get('Id_cata').value, null
+       null
      )
 
     if(objet.Nom_obj != '' && objet.Ascension_droite != '' && objet.Declinaison != '' 
-    && objet.Id_const != null && objet.Id_type != null && objet.Id_cata != null )
+    && objet.Id_const != null && objet.Id_type != null )
     {
       let result = await this.ct_database.add_objet(objet)
       console.log(result)
     }
     else{
-      this.CreateToast("The required fields are not filled in!", "warning", "warning")
+      this.CreateToast("Les champs requis ne sont pas remplis!", "warning", "warning")
     }
   }
 }

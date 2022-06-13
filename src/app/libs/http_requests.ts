@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class HTTP_Requests {
-    private URL = "http://192.168.1.200:5000";
+    private URL = "http://192.168.1.30:5000";
     private headers = new HttpHeaders ({ "Content-Type":"application/json" });
 
     constructor(private client: HttpClient){ }

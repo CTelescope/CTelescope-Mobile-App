@@ -3,7 +3,7 @@
     <ion-button slot="start" (click)="return()" color="white" fill="clear">
         <ion-icon size="large" name="arrow-back"></ion-icon>
     </ion-button>
-    <ion-title>Add object</ion-title>
+    <ion-title>Ajout d'un objet</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -41,13 +41,6 @@
             <ion-label position="floating">Constellation</ion-label>
             <ion-select interface="popover" formControlName="Id_const" required>
               <ion-select-option *ngFor="let constellation of Constellations" value={{constellation.Id_const}}>{{constellation.Nom_const}}</ion-select-option>
-            </ion-select>
-          </ion-item>
-    
-          <ion-item color="transparent">
-            <ion-label position="floating">Catalogue</ion-label>
-            <ion-select interface="popover" formControlName="Id_cata" required>
-              <ion-select-option  *ngFor="let catalogue of Catalogues" value={{catalogue.Id_cata}}>{{catalogue.Nom_cata}}</ion-select-option>
             </ion-select>
           </ion-item>
         </div>
